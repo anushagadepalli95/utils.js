@@ -1,0 +1,16 @@
+//Check for number and decimal validation
+
+onlyNumber(event: any) {
+    // return (event.charCode == 8 || event.charCode == 0) ? null : 
+    if (event.charCode >= 48 && event.charCode <= 57 || this.checkDecimal(event))
+      return true;
+    return false;
+  }
+  checkDecimal(event: any) {
+    if (event.charCode === 46) {
+      const value = event.target.value;
+      const valueLength = value.split('.').length;
+      return (valueLength < 2);
+    }
+    return false;
+  }
